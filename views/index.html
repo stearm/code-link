@@ -1,0 +1,25 @@
+<!doctype html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+		ng-app="codlicious">
+<head>
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css"/>
+	<link rel="stylesheet" href="stylesheets/style.css"/>
+	<link href='https://fonts.googleapis.com/css?family=Montserrat' rel='stylesheet' type='text/css'/>
+	<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.6/angular.min.js"></script>
+	<script src="javascripts/angular-route.js"></script>
+	<script src="javascripts/codlicious.js"></script>
+	<script src="javascripts/documenti.js"></script>
+</head>
+<body>
+<div ng-controller="MenuController">
+	<a slide-toggle="#menu"><span class="glyphicon glyphicon-menu-hamburger" style="font-size:2em; color: #64444F;"></span></a>
+	<div id="menu" class="slideable menu">
+		<ul class="nav nav-stacked">
+			<li><a href="#search">Search</a></li>
+			<li><a href="#insert">Insert</a></li>
+		</ul>
+	</div>
+</div>
+<div ng-view></div>
+</body>
+</html>

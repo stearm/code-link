@@ -1,0 +1,80 @@
+body {
+	font-family: 'Montserrat', sans-serif;
+}
+
+tag-field{
+	font-family: 'Arial', sans-serif;
+}
+
+.tag-field{
+	font-family: 'Arial', sans-serif;
+	margin-right: 2px;
+}
+
+.label-tag{
+	position: absolute;
+}
+
+.ng-invalid.ng-dirty{
+	border-color: #FA787E;
+}
+
+.ng-valid.ng-dirty{
+	border-color: #78FA89;
+}
+
+.menu-icon {
+	width: 2%;
+}
+
+/* sezione menu */
+
+.menu {
+	background-color: #95492F;
+	margin-left: 2px;
+	border-radius: 3px;
+}
+
+.nav>li>a {
+	background-color: #95492F;
+	color: white;
+}
+
+.nav>li>a:hover,
+.nav>li>a:active,
+.nav>li>a:visited{
+	background-color: #95492F;
+	color: #D89547;
+}
+
+.nav>li>a:focus{
+	background-color: #95492F;
+	color: #D89547;
+}
+
+.btn-primary,
+.btn-primary:hover,
+.btn-primary:active,
+.btn-primary:visited,
+.btn-primary:focus {
+    background-color: #95492F;
+    border-color: #D89547;
+}
+
+.btn:focus,
+.btn:active{
+	background-color: #95492F !important;
+}
+
+.label-primary{
+	background-color: #64444F;
+}
+
+.panel-primary {
+    border-color: #64444F;
+}
+
+a.link-url {
+	color: #64444F;
+}
+
