@@ -10,6 +10,7 @@ var api = require('./routes/api');
 
 var app = express();
 
+require('./secure/strategy')(passport);
 app.use(passport.initialize());
 
 // view engine setup
@@ -35,7 +36,6 @@ app.use(function(req, res, next) {
 });
 
 // error handlers
-
 // development error handler
 // will print stacktrace
 if (app.get('env') === 'development') {
