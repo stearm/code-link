@@ -5,28 +5,12 @@ var logger = require('morgan');
 var cookieParser = require('cookie-parser');
 var bodyParser = require('body-parser');
 var passport = require('passport');
-var LocalStrategy = require('passport-local').Strategy;
-
 var routes = require('./routes/index');
 var api = require('./routes/api');
 
 var app = express();
 
-/*
-passport.use('local-login', new LocalStrategy(
-  function(username,password,done){
-    db.utente.findOne({
-      username: username
-    }, function(err, user){
-      if (err){ return done(err); }
-      if (!user){ return done(null, false); }
-      if(!user.password != password){ return done(null,false) }
-      return done(null,user);
-    });
-  }
-));
 app.use(passport.initialize());
-*/
 
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));
