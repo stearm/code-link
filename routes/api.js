@@ -1,14 +1,8 @@
 var express = require('express');
 var mongojs = require('mongojs');
 var db = require('../db');
-var passport = require('passport');
 
 var router = express.Router();
-
-router.post('/login', passport.authenticate('local-login', {
-  successRedirect : '/',
-  failureRedirect : '/error',
-}));
 
 router.get('/doc/:id', function(req,res){
   db.documento.findOne({

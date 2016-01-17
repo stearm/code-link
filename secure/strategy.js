@@ -2,6 +2,17 @@ var LocalStrategy = require('passport-local').Strategy;
 var db = require('../db');
 
 module.exports = function(passport){
+
+  passport.serializeUser(function(user,done){
+    done(null,user);
+  });
+
+  passport.deserializeUser(function(user,done){
+    db.utente.findOne({
+      _id: mongojs.ObjectId(user.id)
+    },done(null,user));
+  });
+
   passport.use('local-login', new LocalStrategy(
     function(username,password,done){
       db.utente.findOne({
@@ -14,4 +25,4 @@ module.exports = function(passport){
       });
     }
   ));
-}
+};
