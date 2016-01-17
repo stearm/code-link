@@ -29,17 +29,27 @@ app.use(session({
 app.use(passport.initialize());
 app.use(passport.session());
 
-var routes = require('./routes/index');
 var api = require('./routes/api');
 
-app.use('/', routes);
 app.use('/api/', api);
 
-app.post('/login', passport.authenticate('local-login', {
-  successRedirect : '/',
-  failureRedirect : '/error',
-}));
+app.get('/', function(req, res, next) {
+  res.render('index.html');
+});
 
+app.get('/login', function(req, res, next) {
+  res.render('login.html');
+});
+
+app.get('/error', function(req, res, next) {
+  res.render('error.html');
+});
+
+app.post('/login', passport.authenticate('local-login', {
+    successRedirect : '/',
+    failureRedirect : '/error'
+  })
+);
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
@@ -49,6 +59,7 @@ app.use(function(req, res, next) {
 });
 
 // error handlers
+
 // development error handler
 // will print stacktrace
 if (app.get('env') === 'development') {
