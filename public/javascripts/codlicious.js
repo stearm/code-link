@@ -23,6 +23,8 @@ app.controller('InserimentoDocumentoController', ['$http', '$scope', function($h
 		ratings: [{"voto":1,"commento":""}]
 	};
 
+	$scope.bookmarkSaved = false;
+
 	$scope.inserisci = function(){
 		$http.post('/api/insertdoc', $scope.documento);
 		$scope.documento =  {
@@ -32,6 +34,7 @@ app.controller('InserimentoDocumentoController', ['$http', '$scope', function($h
 			ratings: [{"voto":1,"commento":""}]
 		};
 		$scope.insertForm.$setPristine();
+		$scope.bookmarkSaved = true;
 	};
 
 }]);

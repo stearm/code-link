@@ -1,5 +1,6 @@
 var express = require('express');
 var mongojs = require('mongojs');
+var passport = require('passport');
 
 var router = express.Router();
 var db = mongojs('mongodb://localhost:27017/codlicious', ['documento']);
