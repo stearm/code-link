@@ -2,13 +2,13 @@ var app = angular.module('codlicious', ['codlicious-documenti','ngRoute']);
 app.config(['$routeProvider', '$httpProvider', function($routeProvider, $httpProvider){
 	$routeProvider
 		.when('/insert', {
-			templateUrl: 'vendor/inserisciDocumento.html'
+			templateUrl: 'component/inserisciDocumento.html'
 		})
 		.when('/search', {
-			templateUrl: 'vendor/listaDocumenti.html'
+			templateUrl: 'component/listaDocumenti.html'
 		})
 		.when('/login', {
-			templateUrl: 'vendor/login.html'
+			templateUrl: 'component/login.html'
 		})
 		.otherwise({
 			redirectTo: '/index.html'

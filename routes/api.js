@@ -1,59 +1,65 @@
-var express = require('express');
 var mongojs = require('mongojs');
-var passport = require('passport');
 var db = require('../db');
 
-var router = express.Router();
+module.exports = function(server){
 
-router.post('/login',
-  passport.authenticate('local-login'),
-  function(req,res){
-    res.redirectTo('/');
-  }
-);
-
-router.get('/doc/:id', function(req,res){
-  db.documento.findOne({
-    _id: mongojs.ObjectId(req.params.id)
-  }, function(err,doc){
-    if(err){
-      res.send(err);
-    } else {
-      res.json(doc);
+  // Get a bookmark by id
+  server.route({
+    method: 'GET',
+    path: '/api/doc/{id}',
+    handler: (request,reply) => {
+      db.documento.findOne({
+        _id: mongojs.ObjectId(request.params.id)
+      }, function(err,doc){
+        if(err){
+          reply(err);
+        } else {
+          reply(doc);
+        }
+      });
     }
   });
-});
 
-router.get('/search', function(req,res){
-  if(JSON.parse(req.query.tags).length > 0){
-    db.documento.find({
-      descrizione: new RegExp(req.query.descrizione, 'i'),
-      tags: { $in : JSON.parse(req.query.tags) }
-    }, function(err,doc){
-      if(err){
-        res.send(err);
+  // Search bookmarks by description and tags
+  server.route({
+    method: 'GET',
+    path: '/api/search',
+    handler: (request,reply) => {
+      if(JSON.parse(request.query.tags).length > 0){
+        db.documento.find({
+          descrizione: new RegExp(request.query.descrizione, 'i'),
+          tags: { $in : JSON.parse(request.query.tags) }
+        }, function(err,doc){
+          if(err){
+            reply(err);
+          } else {
+            reply(doc);
+          }
+        });
       } else {
-        res.json(doc);
+        db.documento.find({descrizione: new RegExp(request.query.descrizione, 'i')}, function(err,doc){
+          if(err){
+            reply(err);
+          } else {
+            reply(doc);
+          }
+        });
       }
-    });
-  } else {
-    db.documento.find({descrizione: new RegExp(req.query.descrizione, 'i')}, function(err,doc){
-      if(err){
-        res.send(err);
-      } else {
-        res.json(doc);
-      }
-    });
-  }
-});
-
-router.post('/insertdoc', function(req,res){
-  db.documento.insert({
-    url: req.body.url,
-    descrizione : req.body.descrizione,
-    tags: req.body.tags,
-    ratings: req.body.ratings
+    }
   });
-});
 
-module.exports = router;
+  // insert bookmarks
+  server.route({
+    method: 'POST',
+    path: '/api/insertdoc',
+    handler: (request,reply) => {
+      db.documento.insert({
+        url: request.payload.url,
+        descrizione : request.payload.descrizione,
+        tags: request.payload.tags,
+        ratings: request.payload.ratings
+      });
+    }
+  });
+
+};
