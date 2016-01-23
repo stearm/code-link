@@ -11,6 +11,15 @@ module.exports = function(server){
       }
     });
 
+    // login page
+    server.route({
+      method: 'GET',
+      path: '/login',
+      handler: function(request,reply){
+        reply.file('./views/login.html');
+      }
+    });
+
     // serving js file
     server.route({
       method: 'GET',

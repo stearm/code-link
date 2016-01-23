@@ -7,9 +7,6 @@ app.config(['$routeProvider', '$httpProvider', function($routeProvider, $httpPro
 		.when('/search', {
 			templateUrl: 'component/listaDocumenti.html'
 		})
-		.when('/login', {
-			templateUrl: 'component/login.html'
-		})
 		.otherwise({
 			redirectTo: '/index.html'
  });

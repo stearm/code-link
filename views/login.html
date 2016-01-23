@@ -1,0 +1,26 @@
+<!doctype html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+		ng-app="codlicious">
+<head>
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css"/>
+	<link rel="stylesheet" href="style/style.css"/>
+	<link href='https://fonts.googleapis.com/css?family=Montserrat' rel='stylesheet' type='text/css'/>
+	<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.6/angular.min.js"></script>
+	<script src="scripts/codlicious.js"></script>
+</head>
+<body>
+	<div class="container-fluid text-center" ng-controller="LoginController">
+		<form class="form-horizontal" ng-submit="">
+			<div class="form-group">
+				<label for="username">Username:
+				<input class="form-control" type="text" name="username">
+			</div>
+			<div class="form-group">
+				<label for="password">Password:
+				<input class="form-control" type="password" name="password">
+			</div>
+			<button type="submit" class="btn btn-primary">Login</button>
+		</form>
+	</div>
+</body>
+</html>
