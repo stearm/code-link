@@ -7,6 +7,7 @@ server.connection({
 });
 
 const basic = require('./routes/basic')(server);
+const auth = require('./secure/auth-strategy')(server);
 const api = require('./routes/api')(server);
 
 server.start(() => {

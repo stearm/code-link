@@ -7,6 +7,7 @@
     "start": "node ./bin/www"
   },
   "dependencies": {
+    "crypto-js": "^3.1.6",
     "debug": "~2.2.0",
     "hapi": "^12.1.0",
     "inert": "^3.2.0",

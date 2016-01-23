@@ -1,5 +1,5 @@
-var mongojs = require('mongojs');
-var db = require('../db');
+const mongojs = require('mongojs');
+const db = require('../db');
 
 module.exports = function(server){
 
