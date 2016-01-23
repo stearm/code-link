@@ -7,12 +7,21 @@ app.config(['$routeProvider', '$httpProvider', function($routeProvider, $httpPro
 		.when('/search', {
 			templateUrl: 'vendor/listaDocumenti.html'
 		})
+		.when('/login', {
+			templateUrl: 'vendor/login.html'
+		})
 		.otherwise({
 			redirectTo: '/index.html'
  });
 
  $httpProvider.defaults.headers.common["X-Requested-With"] = 'XMLHttpRequest';
 
+}]);
+
+app.controller('LoginController', ['$http','$scope', function($http,$scope){
+	$scope.login = function(){
+
+	};
 }]);
 
 app.controller('InserimentoDocumentoController', ['$http', '$scope', function($http,$scope){
