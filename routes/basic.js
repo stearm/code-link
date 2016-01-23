@@ -15,6 +15,7 @@ module.exports = function(server){
     server.route({
       method: 'GET',
       path: '/login',
+      config: { auth: false },
       handler: function(request,reply){
         reply.file('./views/login.html');
       }

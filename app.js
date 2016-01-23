@@ -6,8 +6,8 @@ server.connection({
   port: Number(process.argv[2] || 3000)
 });
 
-const basic = require('./routes/basic')(server);
 const auth = require('./secure/auth-strategy')(server);
+const basic = require('./routes/basic')(server);
 const api = require('./routes/api')(server);
 
 server.start(() => {

@@ -13,11 +13,12 @@ const validate = function(request, username, password, callback) {
   });
 };
 
-
-server.register(Basic, (err) => {
-  server.auth.strategy('simple', 'basic', { validateFunc: validate });
-  // it makes all routes need authentication by default
-  server.auth.default({
-    strategy: 'simple'
+module.exports = function(server){
+  server.register(Basic, (err) => {
+    server.auth.strategy('simple', 'basic', { validateFunc: validate });
+    // it makes all routes need authentication by default
+    server.auth.default({
+      strategy: 'simple'
+    });
   });
-});
+};

@@ -7,9 +7,11 @@
     "start": "node ./bin/www"
   },
   "dependencies": {
+    "bcrypt": "^0.8.5",
     "crypto-js": "^3.1.6",
     "debug": "~2.2.0",
     "hapi": "^12.1.0",
+    "hapi-auth-basic": "^4.1.0",
     "inert": "^3.2.0",
     "mongojs": "^2.2.2",
     "path": "^0.11.14"
